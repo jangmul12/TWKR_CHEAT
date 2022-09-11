@@ -538,17 +538,17 @@ ELSEIF RESULT == 3003
 ;자원 표시 관련
 ELSEIF RESULT == 3100
 	;표시 설정의 변환
-	FLAG:화상설정 = !FLAG:화상설정
+	FLAG:화상표시설정 = !FLAG:화상표시설정
 ELSEIF RESULT == 3101
-	;그림표시 인원수 -
-	FLAG:그림표시 = MAX(FLAG:그림표시-1,1)
+	;화상표시 인원수 -
+	FLAG:화상표시 = MAX(FLAG:화상표시-1,1)
 	
 ELSEIF RESULT == 3102
-	;그림표시 인원수 +
-	FLAG:그림표시 = MIN(FLAG:그림표시+1, 10)
+	;화상표시 인원수 +
+	FLAG:화상표시 = MIN(FLAG:화상표시+1, 10)
 ELSEIF RESULT == 3103
 	;표시 위치 변환
-	FLAG:그림표시위치 = !FLAG:그림표시위치
+	FLAG:화상표시위치 = !FLAG:화상표시위치
 
 ELSEIF RESULT == 3104
 	;테두리 표시 ON/OFF
@@ -584,6 +584,8 @@ ELSEIF RESULT == 9999
 	FOR LOCAL,1,CHARANUM
 		PRINTFORMLC %CALLNAME:LOCAL% 현재위치：{CFLAG:LOCAL:현재위치}
 	NEXT
+ELSEIF RESULT == 900
+	CALL CHEAT(TARGET)
 ENDIF
 TFLAG:Info표시중 = 0
 RETURN 0
