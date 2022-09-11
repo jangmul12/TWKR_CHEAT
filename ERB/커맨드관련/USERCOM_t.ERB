@@ -538,17 +538,17 @@ ELSEIF RESULT == 3003
 ;자원 표시 관련
 ELSEIF RESULT == 3100
 	;표시 설정의 변환
-	FLAG:화상표시설정 = !FLAG:화상표시설정
+	FLAG:화상설정 = !FLAG:화상설정
 ELSEIF RESULT == 3101
-	;화상표시 인원수 -
-	FLAG:화상표시 = MAX(FLAG:화상표시-1,1)
+	;그림표시 인원수 -
+	FLAG:그림표시 = MAX(FLAG:그림표시-1,1)
 	
 ELSEIF RESULT == 3102
-	;화상표시 인원수 +
-	FLAG:화상표시 = MIN(FLAG:화상표시+1, 10)
+	;그림표시 인원수 +
+	FLAG:그림표시 = MIN(FLAG:그림표시+1, 10)
 ELSEIF RESULT == 3103
 	;표시 위치 변환
-	FLAG:화상표시위치 = !FLAG:화상표시위치
+	FLAG:그림표시위치 = !FLAG:그림표시위치
 
 ELSEIF RESULT == 3104
 	;테두리 표시 ON/OFF
@@ -676,7 +676,7 @@ ENDSELECT
 
 @SOMATOMETRY(ARG)
 PRINTFORML %CALLNAME:ARG%의 신체측정을 실시했다.
-CALL MAKE_SIZE(ARG)
+CALL MAKE_SIZE(ARG)   
 CFLAG:ARG:신체측정 = 1
 CALL SHOW_SIZE(ARG)
 CALL ASK_YN("재측정한다","이걸로 좋다")
